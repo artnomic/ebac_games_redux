@@ -19,18 +19,10 @@ function App() {
   const [carrinho, setCarrinho] = useState<Game[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:4000/produtos')
+    fetch('http://localhost:8080/produtos')
       .then((res) => res.json())
       .then((res) => setGames(res))
   }, [])
-
-  function adicionarAoCarrinho(jogo: Game) {
-    if (carrinho.find((game) => game.id === jogo.id)) {
-      alert('Item já adicionado')
-    } else {
-      setCarrinho([...carrinho, jogo])
-    }
-  }
 
   return (
     <>
